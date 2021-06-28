@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>List of Workshops</h1>
+        <h1>List of Workshops!</h1>
         <hr />
         <ol>
             <li v-for="workshop in workshops" :key="workshop._id">
@@ -22,7 +22,7 @@
             };
         },
         created() {
-            axios.get( `http://localhost:3000/api/workshops` )
+            axios.get( `${process.env.VUE_APP_API_BASE_URL}/workshops` )
                 .then(response => {
                     this.workshops = response.data;
                     console.log( this.workshops );
